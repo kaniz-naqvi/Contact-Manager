@@ -1,6 +1,6 @@
 import React from "react";
 
-const FeildSets = ({ name, placeholder, value, setValue }) => {
+const FeildSets = ({ name, placeholder, value, setValue, inputType }) => {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
@@ -12,7 +12,7 @@ const FeildSets = ({ name, placeholder, value, setValue }) => {
       <input
         value={value}
         onChange={(e) => handleChange(e)}
-        type="text"
+        type={inputType}
         className="w-100 px-2 text-light"
         placeholder={placeholder}
       />

@@ -11,7 +11,7 @@ const AddContact = ({ addContact }) => {
 
   function handelSubmit(e) {
     e.preventDefault();
-    if (contactName && contactEmail && contactNumber) {
+    if (contactNumber) {
       const newContact = {
         id: Date.now(), // Unique ID based on timestamp
         name: contactName,
@@ -30,7 +30,7 @@ const AddContact = ({ addContact }) => {
         setIsPopupVisible(false);
       }, 2500);
     } else {
-      alert("Each field is required!");
+      alert("Number is required!");
     }
   }
 
@@ -51,18 +51,21 @@ const AddContact = ({ addContact }) => {
         )}
         <h2 className="text-center fs-4">Add Contact</h2>
         <FeildSets
+          inputType={"text"}
           value={contactName}
           setValue={setContactName}
           name={"Name"}
           placeholder={"Enter Contact Name"}
         />
         <FeildSets
+          inputType={"email"}
           value={contactEmail}
           setValue={setContactEmail}
           name={"Email"}
           placeholder={"Enter Contact Email"}
         />
         <FeildSets
+          inputType={"number"}
           value={contactNumber}
           setValue={setContactNumber}
           name={"Number"}

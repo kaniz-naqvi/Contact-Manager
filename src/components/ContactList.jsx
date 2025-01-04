@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "./Icons";
 import ContactCard from "./ContactCard";
 import { Link } from "react-router-dom";
@@ -6,22 +6,34 @@ import { Link } from "react-router-dom";
 const ContactList = ({ contacts, deleteContact }) => {
   const [inputValue, setInputValue] = useState("");
   const [filteredContacts, setFilteredContacts] = useState(contacts);
+
+  // Function to handle search/filter
   const handelSubmit = (e) => {
     e.preventDefault();
     const filteredContact = contacts.filter((contact) => {
-      return contact.name.toLowerCase().includes(inputValue.toLowerCase());
+      return (
+        contact.name.toLowerCase().includes(inputValue.toLowerCase()) ||
+        contact.number.includes(inputValue)
+      );
     });
     setFilteredContacts(filteredContact);
   };
+
+  // Update filtered contacts whenever the contacts list changes
+  useEffect(() => {
+    setFilteredContacts(contacts);
+  }, [contacts]);
+
   return (
     <div className="container w-75 pt-4">
-      <div className="d-flex  justify-content-between align-items-center">
+      <div className="d-flex justify-content-between align-items-center">
         <h2 className="fs-3 fs-sm-6">Contact List</h2>
         <Link to="/add">
           <Button icon="bi-plus-lg" color={"primary rounded-circle"} />
         </Link>
       </div>
-      <form onSubmit={(e) => handelSubmit(e)} className="d-flex gap-0">
+
+      <form onSubmit={handelSubmit} className="d-flex gap-0">
         <input
           value={inputValue}
           type="text"
@@ -40,8 +52,8 @@ const ContactList = ({ contacts, deleteContact }) => {
       {filteredContacts.map((contact) => (
         <ContactCard
           key={contact.id}
-          deleteContact={deleteContact}
           contact={contact}
+          deleteContact={deleteContact}
         />
       ))}
     </div>

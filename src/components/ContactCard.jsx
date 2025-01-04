@@ -2,6 +2,9 @@ import React from "react";
 import { Button } from "./Icons";
 
 const ContactCard = ({ contact, deleteContact }) => {
+  const handleDelete = () => {
+    deleteContact(contact.id);
+  };
   return (
     <div className="d-flex gap-3 border mt-2 p-2 rounded">
       <img src="./user.png" className="contact-img my-auto" alt="" />
@@ -14,11 +17,7 @@ const ContactCard = ({ contact, deleteContact }) => {
         </p>
       </div>
       <div className="ms-auto">
-        <Button
-          icon={"bi-trash"}
-          textColor={"danger"}
-          onClick={() => deleteContact(contact.id)}
-        />
+        <Button icon={"bi-trash"} textColor={"danger"} onClick={handleDelete} />
       </div>
     </div>
   );
