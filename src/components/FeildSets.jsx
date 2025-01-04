@@ -5,7 +5,7 @@ const FeildSets = ({ name, placeholder, value, setValue }) => {
     setValue(e.target.value);
   };
   return (
-    <fieldset className="container">
+    <fieldset>
       <label htmlFor="" className="d-block py-2">
         <span className="fw-semibold">{name}</span>
       </label>

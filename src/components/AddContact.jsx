@@ -29,7 +29,7 @@ const AddContact = ({ addContact }) => {
   }
 
   return (
-    <form className="container border rounded p-4 w-75 mt-4">
+    <form className="container border rounded p-lg-4 p-sm-1 py-4 w-75 mt-4">
       <h2 className="text-center fs-4">Add Contact</h2>
       <FeildSets
         value={contactName}
@@ -52,7 +52,7 @@ const AddContact = ({ addContact }) => {
       <Button
         text="Add"
         icon="bi-plus-lg"
-        color={"primary"}
+        color={"primary mt-2"}
         onClick={handelSubmit}
       />
     </form>

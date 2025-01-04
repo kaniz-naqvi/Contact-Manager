@@ -15,8 +15,21 @@ input {
 .text-small {
   font-size: small;
 }
+.rounded-pill {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.search-btn {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
 @media (max-width: 500px) {
   .w-75 {
-    width: 80% !important;
+    width: 95% !important;
   }
 }
