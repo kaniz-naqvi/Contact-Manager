@@ -1,25 +1,42 @@
 import React from "react";
-import { Button } from "./Icons";
-
-const ContactCard = ({ contact, deleteContact }) => {
-  const handleDelete = () => {
-    deleteContact(contact.id);
-  };
+import { Button } from "./Feildset";
+const ContactCard = ({
+  name,
+  number,
+  email,
+  id,
+  deleteContact,
+  editContact,
+}) => {
   return (
-    <div className="d-flex gap-3 border mt-2 p-2 rounded">
-      <img src="./user.png" className="contact-img my-auto" alt="" />
-      <div className="d-flex flex-column gap-0">
-        <p className="m-0">{contact.name}</p>
-        <p className="m-0 text-small text-secondary">
-          {contact.number}
+    <>
+      <div className="d-flex gap-2 align-items-center border p-1  rounded-4 my-2">
+        <div className={`rounded-circle px-3 py-2 bg-warning fs-3`}>
+          {name ? name[0].toUpperCase() : number[0]}
+        </div>
+        <div className=" m-0">
+          {name ? name : number}
           <br />
-          {contact.email}
-        </p>
+          <p className="text-small">
+            {name && number} <br /> {email && email}
+          </p>
+        </div>
+        <div className="d-flex m-1   ms-auto flex-column">
+          <Button
+            onClick={() => editContact(id)}
+            color={"info mb-1 p-0"}
+            icon="bi-pencil-square"
+          />
+          <Button
+            onClick={() => {
+              deleteContact(id);
+            }}
+            color={"danger p-0 fs-5"}
+            icon="bi-trash3"
+          />
+        </div>
       </div>
-      <div className="ms-auto">
-        <Button icon={"bi-trash"} textColor={"danger"} onClick={handleDelete} />
-      </div>
-    </div>
+    </>
   );
 };
 

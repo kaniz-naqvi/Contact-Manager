@@ -1,11 +1,7 @@
 import React from "react";
 
 const Header = () => {
-  return (
-    <nav className="navbar">
-      <h2 className="fs-1 m-auto">Contact Manager</h2>
-    </nav>
-  );
+  return <h1 className="text-center fs-1">Contact Manager</h1>;
 };
 
 export default Header;
