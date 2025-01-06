@@ -1,11 +1,14 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
 import ContactManager from "./ContactManager";
-import { BrowserRouter } from "react-router-dom";
+import ContactContext from "./Context/ContactContext";
+
 const App = () => {
   return (
-    <BrowserRouter>
-      <ContactManager />
-    </BrowserRouter>
+    <ContactContext>
+      <Routes>
+        <Route path="/*" element={<ContactManager />} />
+      </Routes>
+    </ContactContext>
   );
 };
 

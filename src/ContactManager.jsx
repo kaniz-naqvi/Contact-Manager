@@ -1,41 +1,61 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import Header from "./components/Header";
+import React, { useContext } from "react";
+import { Routes, Route } from "react-router-dom"; // Correct import
 import AddContact from "./components/AddContact";
+import Header from "./components/Header";
 import ContactList from "./components/ContactList";
-import { Routes, Route } from "react-router-dom";
+import { DataContext } from "./Context/ContactContext";
+
 const ContactManager = () => {
-  const [contacts, setContacts] = useState(() => {
-    const savedContact = localStorage.getItem("Contact");
-    return savedContact ? JSON.parse(savedContact) : [];
-  }); // State to manage contacts
+  const {
+    name,
+    setName,
+    email,
+    setEmail,
+    number,
+    setNumber,
+    addContact,
+    contacts,
+    deleteContact,
+    searchHandel,
+    editContact,
+    updateContact,
+    isUpdate,
+  } = useContext(DataContext);
 
-  // Function to add a new contact
-  const addContactHandler = (newContact) => {
-    setContacts([...contacts, newContact]); // Add new contact to the list
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addContact();
   };
 
-  const handelDelete = (id) => {
-    if (window.confirm("You won't be able to restore this. Proceed?")) {
-      const updateContacts = contacts.filter((contact) => contact.id !== id);
-      setContacts(updateContacts);
-    }
-  };
-  useEffect(() => {
-    localStorage.setItem("Contact", JSON.stringify(contacts));
-  }, [contacts]);
   return (
     <>
       <Header />
       <Routes>
         <Route
-          path="/add"
-          element={<AddContact addContact={addContactHandler} />}
-        />
-        <Route
           path="/"
           element={
-            <ContactList contacts={contacts} deleteContact={handelDelete} />
+            <ContactList
+              editContact={editContact}
+              searchHandel={searchHandel}
+              contacts={contacts}
+              deleteContact={deleteContact}
+            />
+          }
+        />
+        <Route
+          path="/add-contacts"
+          element={
+            <AddContact
+              isUpdate={isUpdate}
+              updateContact={updateContact}
+              submitHandler={handleSubmit}
+              email={email}
+              setEmail={setEmail}
+              number={number}
+              setNumber={setNumber}
+              name={name}
+              setName={setName}
+            />
           }
         />
       </Routes>
