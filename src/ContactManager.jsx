@@ -46,7 +46,7 @@ const ContactManager = () => {
           path="/add-contacts"
           element={
             <AddContact
-              isUpdate={isUpdate}
+            isUpdate={isUpdate}
               updateContact={updateContact}
               submitHandler={handleSubmit}
               email={email}
