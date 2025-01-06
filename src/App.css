@@ -1,35 +1,19 @@
 input {
-  background-color: transparent;
   outline: none;
-  border: 2px solid #dadada;
-  border-radius: 10px;
-  height: 40px;
 }
-.w-75 {
-  width: 40% !important;
+input:focus {
+  outline: #0b5ed7 1.5px solid;
+  margin-right: 2px;
 }
-.contact-img {
-  width: 50px;
-  height: 50px;
+.search-btn {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
-.text-small {
-  font-size: small;
-}
-.rounded-pill {
+.search-input {
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
-.search-btn {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top-right-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
-}
-
-@media (max-width: 500px) {
-  .w-75 {
-    width: 95% !important;
-  }
+.text-small {
+  font-size: smaller;
+  color: gray;
 }
