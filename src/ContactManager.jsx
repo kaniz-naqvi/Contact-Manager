@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route } from "react-router-dom"; // Correct import
+import { Routes, Route } from "react-router-dom";
 import AddContact from "./components/AddContact";
 import Header from "./components/Header";
 import ContactList from "./components/ContactList";
@@ -46,7 +46,7 @@ const ContactManager = () => {
           path="/add-contacts"
           element={
             <AddContact
-            isUpdate={isUpdate}
+              isUpdate={isUpdate}
               updateContact={updateContact}
               submitHandler={handleSubmit}
               email={email}
