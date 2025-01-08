@@ -2,12 +2,12 @@ import React from "react";
 import ContactCard from "./ContactCard";
 import SearchBar from "./SearchBar";
 import { Button } from "./Feildset";
-
 const ContactList = ({
   contacts,
   deleteContact,
   searchHandel,
   editContact,
+  showSnackbar,
 }) => {
   return (
     <>

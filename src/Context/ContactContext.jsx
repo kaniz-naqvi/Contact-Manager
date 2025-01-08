@@ -40,6 +40,7 @@ const ContactContext = ({ children }) => {
     setName("");
     setNumber("");
     navigate("/");
+    setShowSnackbar(true);
   };
 
   const deleteContact = (id) => {
@@ -80,8 +81,10 @@ const ContactContext = ({ children }) => {
       setContacts(storedContacts);
       setIsSearch(false); // Reset search flag
     } else {
-      const searchFilter = contacts.filter((c) =>
-        c.name.toLowerCase().includes(inputVal.toLowerCase())
+      const searchFilter = contacts.filter(
+        (c) =>
+          c.name.toLowerCase().includes(inputVal.toLowerCase()) ||
+          c.number.includes(inputVal)
       );
       setContacts(searchFilter);
       setIsSearch(true); // Set search flag true
