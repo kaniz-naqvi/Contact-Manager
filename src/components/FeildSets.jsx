@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Feildset component for labeled input
 const Feildset = ({ label, placeholder, type, value, setValue }) => {
   return (
     <fieldset className="my-3">
@@ -18,6 +19,8 @@ const Feildset = ({ label, placeholder, type, value, setValue }) => {
     </fieldset>
   );
 };
+
+// Button component with optional link
 export function Button({ text, icon, color, onClick, link, linkPath }) {
   return (
     <button
@@ -28,14 +31,14 @@ export function Button({ text, icon, color, onClick, link, linkPath }) {
     >
       {link ? (
         <Link to={linkPath} className="text-light">
-          {<i className={`bi ${icon} px-1`}></i>}
+          <i className={`bi ${icon} px-1`}></i>
         </Link>
       ) : (
         icon && <i className={`bi ${icon} px-1`}></i>
       )}
-
       {text && text}
     </button>
   );
 }
+
 export default Feildset;
