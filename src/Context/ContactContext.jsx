@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 export const DataContext = createContext();
 
 const ContactContext = ({ children }) => {
-  const [editingId, setEditingId] = useState(null);
-
   const navigate = useNavigate();
   const [contacts, setContacts] = useState(() => {
     try {
@@ -21,6 +19,8 @@ const ContactContext = ({ children }) => {
   const [number, setNumber] = useState("");
   const [isSearch, setIsSearch] = useState(false); // Flag for search
   const [isUpdate, setIsUpdate] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+
   // Update localStorage only if contacts are added or deleted, not when searched
   useEffect(() => {
     if (!isSearch && contacts.length > 0) {
@@ -67,6 +67,7 @@ const ContactContext = ({ children }) => {
         : contact
     );
     setContacts(updatedContacts); // Update the state with the new contacts array
+    setIsUpdate(false);
     setEmail("");
     setName("");
     setNumber("");

@@ -6,7 +6,6 @@ const App = () => {
   return (
     <ContactContext>
       <Routes>
-        {/* This is the correct way to route to ContactManager */}
         <Route path="/*" element={<ContactManager />} />
       </Routes>
     </ContactContext>

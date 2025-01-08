@@ -36,18 +36,19 @@ const AddContact = ({
         label={"Number"}
         placeholder={"Enter Contact number"}
       />
-
-      <Button
-        text={"Update"}
-        color={"info"}
-        icon={"bi-arrow-clockwise"}
-        onClick={(e) => {
-          e.preventDefault();
-          updateContact();
-        }}
-      />
-
-      <Button icon={"bi-person-plus-fill"} text={"Add"} />
+      {isUpdate ? (
+        <Button
+          text={"Update"}
+          color={"info"}
+          icon={"bi-arrow-clockwise"}
+          onClick={(e) => {
+            e.preventDefault();
+            updateContact();
+          }}
+        />
+      ) : (
+        <Button icon={"bi-person-plus-fill"} text={"Add"} />
+      )}
     </form>
   );
 };
