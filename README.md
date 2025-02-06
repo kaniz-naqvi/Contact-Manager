@@ -39,12 +39,12 @@ To run the project locally, follow these steps:
 
 3. Install the dependencies:
     ```bash
-    npm run dev
+    npm install
     ```
 
 4. Start the application:
     ```bash
-    npm start
+    npm run dev
     ```
 
 The app will be live on `http://localhost:3000`.
