@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Importing Link for routing
+import { Link } from "react-router-dom";
 
 // Fieldset component for rendering form input fields
 const Feildset = ({ label, placeholder, type, value, setValue }) => {
@@ -12,9 +12,9 @@ const Feildset = ({ label, placeholder, type, value, setValue }) => {
         type={type}
         name={type}
         id={type}
-        required={type == "number" && true} // Required for number type
+        required={type === "number"} // Required for number type
         placeholder={placeholder}
-        onChange={(e) => setValue(e.target.value)} // Updating value on input change
+        onChange={(e) => setValue(e.target.value)}
       />
     </fieldset>
   );
@@ -24,22 +24,21 @@ const Feildset = ({ label, placeholder, type, value, setValue }) => {
 export function Button({ text, icon, color, onClick, link, linkPath }) {
   return (
     <button
-      onClick={onClick && onClick} // On button click handler
-      className={
-        color ? `btn text-light bg-${color}` : "btn text-light bg-primary"
-      }
+      onClick={onClick}
+      className={`btn text-light ${color ? `bg-${color}` : "bg-primary"}`}
     >
       {link ? (
         // Render Link if "link" prop is true
         <Link to={linkPath} className="text-light">
-          {<i className={`bi ${icon} px-1`}></i>}{" "}
-          {/* Render icon inside Link */}
+          {icon && <i className={`bi ${icon} px-1`}></i>}
+          {text}
         </Link>
       ) : (
-        // Render icon if present
-        icon && <i className={`bi ${icon} px-1`}></i>
+        <>
+          {icon && <i className={`bi ${icon} px-1`}></i>}
+          {text}
+        </>
       )}
-      {text && text} {/* Render button text if present */}
     </button>
   );
 }

@@ -1,19 +1,19 @@
 import React from "react";
-import ContactCard from "./ContactCard"; // Importing ContactCard
-import SearchBar from "./SearchBar"; // Importing SearchBar
-import { Button } from "./Feildset"; // Importing Button
+import ContactCard from "./ContactCard";
+import SearchBar from "./SearchBar";
+import { Button } from "./Feildset";
 
 const ContactList = ({
-  contacts, // List of contacts
-  deleteContact, // Function to delete a contact
-  searchHandel, // Function to handle search
-  editContact, // Function to edit a contact
+  contacts,
+  deleteContact,
+  searchHandel,
+  editContact,
 }) => {
   return (
     <>
       <div className="d-flex  justify-content-between my-1 align-items-center">
         <h3>Contact List</h3>
-        {/* Button to navigate to Add Contact page */}
+
         <Button
           icon={"bi-person-plus-fill"}
           link={true}
@@ -21,10 +21,7 @@ const ContactList = ({
         />
       </div>
 
-      {/* Search bar component */}
       <SearchBar searchHandel={searchHandel} />
-
-      {/* Rendering contact cards */}
       {contacts.map((c) => (
         <ContactCard
           editContact={editContact}
